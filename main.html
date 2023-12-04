@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+    <title>Speaker Interference</title>
+    <style>
+    #circle {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(169, 49, 49);
+        position: absolute;
+        top: 300px;
+        left: 300px;
+        transition: transform 0.1s ease-in-out;
+    }
+    #container {
+        position: relative;
+        height: 620px;
+        width: 620px;
+        background-color: rgb(223, 222, 222);
+        /*border: 1px solid black;*/
+        margin: 50px;
+    }
+    #speaker1 {
+        width: 20px;
+        height: 40px;
+        background-color: rgb(79, 78, 78);
+        position: absolute;
+        top: 250px;
+    }
+
+    #speaker2 {
+        width: 20px;
+        height: 40px;
+        background-color: rgb(79, 78, 78);
+        position: absolute;
+        top: 350px;
+    }
+    </style>
+</head>
+
+<body style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+    <h1 style="margin: 50px;">Speaker Interference Interactive</h1>
+    <div id="container">
+    <div id="circle"></div>
+    <div id="speaker1"></div>
+    <div id="speaker2"></div>
+    </div>
+
+    <form style="margin: 50px;">
+    <label for="x_pos">X Position:</label>
+    <input type="range" min="1" max="600" value="300" class="slider" id="x_pos"><br>
+    <label for="y_pos">Y Position:</label>
+    <input type="range" min="1" max="600" value="300" class="slider" id="y_pos">
+    </form>
+
+    <button style="margin: 50px;">Play</button>
+</body>
+
+<script src="main.js"> </script>
+
+</html>
