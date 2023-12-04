@@ -31,7 +31,8 @@ playButton.addEventListener('click', async function () {
     speaker1.connect(gainNode);
     gainNode.connect(audioCtx.destination);
 
-    gainNode.gain.value = 1.0
+    // phi_0 is 0 because r1 = r2
+    gainNode.gain.value = 2 * A * Math.cos(0)
 
     speaker1.type = 'sine'; 
     speaker1.frequency.value = 439.74; 
