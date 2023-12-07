@@ -2,7 +2,7 @@ const circle = document.getElementById('circle');
 const x_pos = document.getElementById('x_pos');
 const y_pos = document.getElementById('y_pos');
 
-const room_len = 20 // room length in meters
+const room_len = 10 // room length in meters
 const pix_per_m = 600 / room_len
 const top1 = 250
 const top2 = 350
