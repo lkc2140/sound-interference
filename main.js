@@ -2,11 +2,11 @@ const circle = document.getElementById('circle');
 const x_pos = document.getElementById('x_pos');
 const y_pos = document.getElementById('y_pos');
 
-const room_len = 30 // room length in meters
+const room_len = 20 // room length in meters
 const pix_per_m = 600 / room_len
 const top1 = 250
 const top2 = 350
-const A = 0.8
+const A = 0.45
 
 function move_pos() {
     var x = x_pos.value;
@@ -35,7 +35,7 @@ playButton.addEventListener('click', async function () {
     gainNode.gain.value = 2 * A * Math.cos(0)
 
     speaker1.type = 'sine'; 
-    speaker1.frequency.value = 439.74; 
+    speaker1.frequency.value = 440; 
     var lambda = 343 / speaker1.frequency.value 
     console.log(lambda)
 
@@ -61,7 +61,7 @@ playButton.addEventListener('click', async function () {
 
         var gainValue = A_eff ** 2;
         console.log(gainValue)
-        gainNode.gain.value = gainValue;
+        gainNode.gain.value.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + 0.2)
 
     }
 
