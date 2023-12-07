@@ -61,7 +61,7 @@ playButton.addEventListener('click', async function () {
 
         var gainValue = A_eff ** 2;
         console.log(gainValue)
-        gainNode.gain.value.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + 0.2)
+        gainNode.gain.exponentialRampToValueAtTime(gainValue, audioCtx.currentTime + 0.2)
 
     }
 
