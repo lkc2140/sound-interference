@@ -35,6 +35,9 @@
         position: absolute;
         top: 350px;
     }
+    .slider {
+        width: 500px
+    }
     </style>
 </head>
 
@@ -48,9 +51,9 @@
 
     <form style="margin: 50px;">
     <label for="x_pos">X Position:</label>
-    <input type="range" min="1" max="600" value="300" class="slider" id="x_pos"><br>
+    <input type="range" min="1" max="600" value="300" step="1" class="slider" id="x_pos"><br>
     <label for="y_pos">Y Position:</label>
-    <input type="range" min="1" max="600" value="300" class="slider" id="y_pos">
+    <input type="range" min="1" max="600" value="300" step="1" class="slider" id="y_pos">
     </form>
 
     <button style="margin: 50px;">Play</button>
