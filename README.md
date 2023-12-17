@@ -54,9 +54,9 @@ I believe this assumption is a bit over-simplistic, and I hope to improve on thi
 
 ## Web Audio implementation
 
-To implement this in Web Audio is not too complicated. The main functionality is shown here:
+Implementing this in Web Audio is not too complicated. The main functionality is shown here:
 
-Certain values are hard-coded. I the wavelength is related to the speed of sound and frequency, as mentioned previously. I also chose a room length of 9 meters, which is about the average size of a classroom. I chose a value of 600 pixels per meter, for the visual representation.
+Certain values are hard-coded. The wavelength is related to the speed of sound and frequency, as mentioned previously. I also chose a room length of 9 meters, which is about the average size of a classroom. I chose a value of 600 pixels per meter, for the visual representation.
 ```
 var lambda = 343 / speaker1.frequency.value 
 const room_len = 9 // room length in meters
@@ -79,7 +79,7 @@ gainNode.gain.value = A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(0)
 speaker1.type = 'sine'; 
 speaker1.frequency.value = 440; 
 ```
-Everytime the positition of the user is adjusted, the path difference $\Delta r$ is re-calculated. Then, the gain is adjusted to $A_{eff}^2$ using ```exponentialRampToValue()```.
+Every time the positition of the user is adjusted, the path difference $\Delta r$ is re-calculated. Then, the gain is adjusted to $A_{eff}^2$ using ```exponentialRampToValue()```.
 ```
 function adjust_gain() {
         var x = x_pos.value / pix_per_m
