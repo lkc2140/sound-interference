@@ -19,8 +19,7 @@ var A2 = amp2.value / 100
 function move_pos() {
     var x = x_pos.value;
     var y = y_pos.value;
-    console.log(y)
-    circle.style.transform = `translate(${x - 300}px, ${y - 300}px)`;
+    circle.style.transform = `translate(${x - 150}px, ${y - 300}px)`;
 }
 
 function move_speaker_pos() {
@@ -29,7 +28,6 @@ function move_speaker_pos() {
     speaker1.style.transform = `translate(${0}px, ${-(280-d1)}px)`;
     speaker2.style.transform = `translate(${0}px, ${d2-320}px)`;
 }
-
 
 
 x_pos.addEventListener('input', move_pos);
@@ -51,13 +49,17 @@ playButton.addEventListener('click', async function () {
     gainNode.connect(audioCtx.destination);
 
     // phi_0 is 0 because r1=r2
-    gainNode.gain.value = A1**2 + A2**2 + 2 * (A1 * A2 * Math.cos(0))
+    var x = x_pos.value / pix_per_m
+    A1_vol = A1 / (x **2)
+    A2_vol = A2 / (x **2)
+    gainNode.gain.value = A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(0))
 
     speaker1.type = 'sine'; 
-    speaker1.frequency.value = 439.74; 
+    speaker1.frequency.value = 440; 
     var lambda = 343 / speaker1.frequency.value 
 
     function adjust_gain() {
+        // do all the math steps
         var x = x_pos.value / pix_per_m
         var y = y_pos.value;
         var y1 = (y - d1) / pix_per_m
@@ -66,12 +68,11 @@ playButton.addEventListener('click', async function () {
         var r2 = Math.sqrt(x**2 + y2**2)
         var d_r = Math.abs(r1 - r2)
         var phi = 2 * Math.PI * d_r / lambda
-        A_eff = Math.sqrt( A1**2 + A2**2 + 2 * (A1 * A2 * Math.cos(phi)))
-        console.log("A1")
-        console.log(A1)
-        console.log("A2")
-        console.log(A2)
-        console.log("A_eff")
+        // acount for orthogonal distance from speaker
+        A1_vol = A1 / (x **2)
+        A2_vol = A2 / (x **2)
+        A_eff = Math.sqrt( A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(phi)))
+
         console.log(A_eff)
 
         var gainValue = A_eff ** 2;
