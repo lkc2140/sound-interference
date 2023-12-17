@@ -10,7 +10,7 @@ This interactive is meant to simulate constructive/destructive interference due 
 
 Starting from the wave equations for two sound waves, we can determine how the total amplitude is affected by superposition and phase difference. I am simplifying this problem by representing each speaker as a single sine wave. For more information on why sound waves can be represented by sine/cosine functions is included in the references. I will represent a single sound wave as:
 
-$\Psi = A\sin(\omega t + \phi)$.
+$$\Psi = A\sin(\omega t + \phi)$$
 
 Where $\omega$ is the angular speed, or the rate of oscillation. Given two sine waves of amplitudes $A_1$ and $A_2$, the waves will have a phase shift which correspond to the difference in path, $\Delta r$ between them. If wave 1 travels a distance $r_1$ and wave 2 travels a distance $r_2$, the phase shift is:
 
@@ -26,29 +26,29 @@ From my review of literature, I believe it is reasonable to assume that when the
 
 We can now calculate the effective amplitude:
 
-$A_1\sin(\omega t + \phi) + A_2\sin(\omega t) = A_{eff}sin(\omega t + \delta)$
+$$A_1\sin(\omega t + \phi) + A_2\sin(\omega t) = A_{eff}sin(\omega t + \delta)$$
 
-$A_1e^{i(\omega t + \phi)} + A_2e^{i \omega t} = A_{eff}e^{i(\omega t + \delta)}$
+$$A_1e^{i(\omega t + \phi)} + A_2e^{i \omega t} = A_{eff}e^{i(\omega t + \delta)}$$
 
-$A_1e^{i\phi} + A_2 = A_{eff}e^{i\delta}$
+$$A_1e^{i\phi} + A_2 = A_{eff}e^{i\delta}$$
 
 Now, taking the complex ampitude and expanding the exponents:
 
-$|A\cos\phi + Aisin\phi +B|^2 = |A_{eff} \cos\delta + iA_{eff}\sin\delta|^2$
+$$|A\cos\phi + Aisin\phi +B|^2 = |A_{eff} \cos\delta + iA_{eff}\sin\delta|^2$$
 
-$(A\cos\phi + B)^2 + (Asin\phi)^2 = (A_{eff} \cos\delta)^2  (A_{eff}\sin\delta|)^2$
+$$(A\cos\phi + B)^2 + (Asin\phi)^2 = (A_{eff} \cos\delta)^2  (A_{eff}\sin\delta|)^2$$
 
-$A^2 \cos^2\phi + 2AB\cos\phi + B^2 +A^2 \sin^2\phi = A_{eff}^2$
+$$A^2 \cos^2\phi + 2AB\cos\phi + B^2 +A^2 \sin^2\phi = A_{eff}^2$$
 
-$A^2 + B^2 + 2 ABcos\phi = A_{eff}^2$
+$$A^2 + B^2 + 2 ABcos\phi = A_{eff}^2$$
 
-Great, We have the amplitude! For this project, the amplitude, $A_eff$ is the only necessary information. The volume that we hear from a sound source is proportional to the intensity.
+Great, We have the amplitude! For this project, the amplitude, $A_{eff}$ is the only necessary information. The volume that we hear from a sound source is proportional to the intensity:
 
 Volume $\propto I \propto A^2$.
 
-One last thing to account for is the fact that as the orthogonal distance from each speakers increases, the volume, $V$, should naturally decrease (aside from any interference effects). Intensity is proportional to area, so for a circular wave propagating out from a speaker, as pictured above, this area should be $\pi r^2$. So, I have asserted that the volume should decrease with $1/r^2$:
+One last thing to account for is the fact that as the orthogonal distance from each speakers increases, the volume, $V$, should naturally decrease (aside from any interference effects). Intensity is proportional to area, so for a circular wave propagating out from a speaker, as pictured above, this area should be $\pi r^2$. So, I have asserted that the volume should decrease with $1/r^2$, and therefore, the amplitude should decrease with $1/r$:
 
-$\frac{dV}{dr} \propto \frac{1}{r^2}$
+$$I \propto \frac{1}{r^2} \rightarrow A \propto \sqrt{I} \propto \sqrt{\frac{1}{r^2}} \propto \frac{1}{r}$$
 
 I believe this assumption is a bit over-simplistic, and I hope to improve on this in the future.
 
@@ -72,8 +72,8 @@ gainNode.connect(audioCtx.destination);
 
 // phi_0 is 0 because r1=r2
 var x = x_pos.value / pix_per_m
-A1_vol = A1 / (x **2)
-A2_vol = A2 / (x **2)
+A1_vol = A1 / x
+A2_vol = A2 / x
 gainNode.gain.value = A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(0))
 
 speaker1.type = 'sine'; 
@@ -91,8 +91,8 @@ function adjust_gain() {
         var d_r = Math.abs(r1 - r2)
         var phi = 2 * Math.PI * d_r / lambda
         // acount for orthogonal distance from speaker
-        A1_vol = A1 / (r1 **2)
-        A2_vol = A2 / (r2 **2)
+        A1_vol = A1 / r1
+        A2_vol = A2 / r2
         A_eff = Math.sqrt( A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(phi)))
 
         var gainValue = A_eff ** 2;
