@@ -1,5 +1,7 @@
 # Interacting Sound Waves
 
+Project is linked [here](https://lkc2140.github.io/sound-interference/main.html).
+
 ## Background
 
 This interactive is meant to simulate constructive/destructive interference due to two speakers. Interference is a result of the adding of two off-phase waves, causing the troughs and peaks of the waves to 'cancel' or 'multiply'.
@@ -102,7 +104,18 @@ function adjust_gain() {
 
 In the future, I hope to improve upon the volume-distance dampening effect, as I think it could be more accurate. I also would like to allow for the frequency to be adjustable.
 
-Allowing each speakers' frequencies to vary from each other adds much more complexity, and I was stuck on the math for that case. This is also something I hope to be able to implement in the future.
+Allowing each speakers' frequencies to vary from each other adds much more complexity, and I was stuck on the math for that case. This is also something I hope to be able to implement in the future. Even allowing a slight variance in frequency could allow to show very interesting phenomena, such as beats.
 
 ## References
+[1] [Normal Modes of a Standing Sound Wave
+](https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/17-4-normal-modes-of-a-standing-sound-wave/#:~:text=If%20you%20walk%20around%20two,has%20various%20frequencies%20and%20wavelengths.)
+
+[2] [Superposition and Interference](https://courses.lumenlearning.com/suny-physics/chapter/16-10-superposition-and-interference/)
+
+[3] [Interference of Waves](https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/16-5-interference-of-waves/)
+
+[4] [Constructive and Destructive Interference](https://www.phys.uconn.edu/~gibson/Notes/Section5_2/Sec5_2.htm)
+
+[5] [How to add sine functions of different amplitude and phase](https://scipp.ucsc.edu/~haber/ph5B/addsine.pdf)
+
 
