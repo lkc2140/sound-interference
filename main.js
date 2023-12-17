@@ -50,8 +50,8 @@ playButton.addEventListener('click', async function () {
 
     // phi_0 is 0 because r1=r2
     var x = x_pos.value / pix_per_m
-    A1_vol = A1 / (x **2)
-    A2_vol = A2 / (x **2)
+    A1_vol = A1 / r1
+    A2_vol = A2 / r2
     gainNode.gain.value = A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(0))
 
     speaker1.type = 'sine'; 
@@ -69,8 +69,8 @@ playButton.addEventListener('click', async function () {
         var d_r = Math.abs(r1 - r2)
         var phi = 2 * Math.PI * d_r / lambda
         // acount for orthogonal distance from speaker
-        A1_vol = A1 / (x **2)
-        A2_vol = A2 / (x **2)
+        A1_vol = A1 / r1
+        A2_vol = A2 / r2
         A_eff = Math.sqrt( A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(phi)))
 
         console.log(A_eff)
