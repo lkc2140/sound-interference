@@ -10,7 +10,7 @@ This interactive is meant to simulate constructive/destructive interference due 
 
 Starting from the wave equations for two sound waves, we can determine how the total amplitude is affected by superposition and phase difference. I am simplifying this problem by representing each speaker as a single sine wave. For more information on why sound waves can be represented by sine/cosine functions is included in the references. I will represent a single sound wave as:
 ```math
-$$\Psi = A\sin(\omega t + \phi)$$
+\Psi = A\sin(\omega t + \phi)
 ```
 Where $\omega$ is the angular speed, or the rate of oscillation. Given two sine waves of amplitudes $A_1$ and $A_2$, the waves will have a phase shift which correspond to the difference in path, $\Delta r$ between them. If wave 1 travels a distance $r_1$ and wave 2 travels a distance $r_2$, the phase shift is:
 
