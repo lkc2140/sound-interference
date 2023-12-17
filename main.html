@@ -2,7 +2,7 @@
 <head>
     <title>Speaker Interference</title>
     <style>
-    #circle {
+    #listener {
         width: 20px;
         height: 20px;
         border-radius: 50%;
@@ -12,20 +12,21 @@
         left: 300px;
         transition: transform 0.1s ease-in-out;
     }
-    #container {
+    #room {
         position: relative;
         height: 620px;
         width: 620px;
-        background-color: rgb(223, 222, 222);
-        /*border: 1px solid black;*/
-        margin: 50px;
+        border: 3px solid black;
+        margin-left: 50px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
     #speaker1 {
         width: 20px;
         height: 40px;
-        background-color: rgb(79, 78, 78);
+        background-color: rgb(179, 21, 21);
         position: absolute;
-        top: 250px;
+        top: 280px;
     }
 
     #speaker2 {
@@ -33,30 +34,46 @@
         height: 40px;
         background-color: rgb(79, 78, 78);
         position: absolute;
-        top: 350px;
+        top: 320px;
     }
     .slider {
-        width: 500px
+        width: 330px
     }
     </style>
 </head>
 
 <body style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-    <h1 style="margin: 50px;">Speaker Interference Interactive</h1>
-    <div id="container">
-    <div id="circle"></div>
+    <h1 style="margin-left: 50px;">Speaker Interference Interactive</h1>
+    <div id="room">
+    <div id="listener"></div>
     <div id="speaker1"></div>
     <div id="speaker2"></div>
     </div>
 
-    <form style="margin: 50px;">
-    <label for="x_pos">X Position:</label>
-    <input type="range" min="1" max="600" value="300" step="1" class="slider" id="x_pos"><br>
-    <label for="y_pos">Y Position:</label>
-    <input type="range" min="1" max="600" value="300" step="1" class="slider" id="y_pos">
+    <form style="margin-left: 50px; margin-bottom: 20px;">
+        <label for="x_pos">X Position:</label>
+        <input type="range" min="1" max="600" value="300" step="1" class="slider" id="x_pos"><br>
+
+        <label for="y_pos">Y Position:</label>
+        <input type="range" min="1" max="600" value="300" step="1" class="slider" id="y_pos">
     </form>
 
-    <button style="margin: 50px;">Play</button>
+    <form style="margin-left: 50px; margin-bottom: 20px;">
+        <label for="amp1">Speaker 1 Volume:</label>
+        <input type="range" min="0" max="49" value="49" class="slider" id="amp1"><br>
+
+        <label for="amp2">Speaker 2 Volume:</label>
+        <input type="range" min="0" max="49" value="49" class="slider" id="amp2"><br>
+    </form>
+
+    <form style="margin-left: 50px; margin-bottom: 20px;">
+        <label for="speaker1_pos">Speaker 1 Position:</label>
+        <input type="range" min="0" max="280" value="280" step="1" class="slider" id="speaker1_pos"><br>
+        <label for="speaker2_pos">Speaker 2 Position:</label>
+        <input type="range" min="320" max="580" value="0" step="1" class="slider" id="speaker2_pos"><br>
+    </form>
+    
+    <button style="margin-left: 50px;">Play</button>
 </body>
 
 <script src="main.js"> </script>
