@@ -50,8 +50,8 @@ playButton.addEventListener('click', async function () {
 
     // phi_0 is 0 because r1=r2
     var x = x_pos.value / pix_per_m
-    A1_vol = A1 / r1
-    A2_vol = A2 / r2
+    A1_vol = A1 / x
+    A2_vol = A2 / x
     gainNode.gain.value = A1_vol**2 + A2_vol**2 + 2 * (A1_vol * A2_vol * Math.cos(0))
 
     speaker1.type = 'sine'; 
