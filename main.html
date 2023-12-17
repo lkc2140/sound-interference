@@ -9,7 +9,7 @@
         background-color: rgb(169, 49, 49);
         position: absolute;
         top: 300px;
-        left: 300px;
+        left: 150px;
         transition: transform 0.1s ease-in-out;
     }
     #room {
@@ -37,7 +37,7 @@
         top: 320px;
     }
     .slider {
-        width: 330px
+        width: 550px
     }
     </style>
 </head>
@@ -52,7 +52,7 @@
 
     <form style="margin-left: 50px; margin-bottom: 20px;">
         <label for="x_pos">X Position:</label>
-        <input type="range" min="1" max="600" value="300" step="1" class="slider" id="x_pos"><br>
+        <input type="range" min="100" max="600" value="150" step="1" class="slider" id="x_pos"><br>
 
         <label for="y_pos">Y Position:</label>
         <input type="range" min="1" max="600" value="300" step="1" class="slider" id="y_pos">
@@ -68,9 +68,9 @@
 
     <form style="margin-left: 50px; margin-bottom: 20px;">
         <label for="speaker1_pos">Speaker 1 Position:</label>
-        <input type="range" min="0" max="280" value="280" step="1" class="slider" id="speaker1_pos"><br>
+        <input type="range" min="200" max="280" value="280" step="1" class="slider" id="speaker1_pos"><br>
         <label for="speaker2_pos">Speaker 2 Position:</label>
-        <input type="range" min="320" max="580" value="0" step="1" class="slider" id="speaker2_pos"><br>
+        <input type="range" min="320" max="400" value="0" step="1" class="slider" id="speaker2_pos"><br>
     </form>
     
     <button style="margin-left: 50px;">Play</button>
