@@ -19,7 +19,7 @@ var A2 = amp2.value / 100
 function move_pos() {
     var x = x_pos.value;
     var y = y_pos.value;
-    circle.style.transform = `translate(${x - 150}px, ${y - 300}px)`;
+    circle.style.transform = `translate(${x - 300}px, ${y - 300}px)`;
 }
 
 function move_speaker_pos() {
